@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <title>Responsive Flex Navbar</title>
+  </head>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .navbar {
+      display: flex;
+      align-items: center;
+      background-color: black;
+      padding: 20px;
+      font-family: 'Montserrat', sans-serif;
+      color: white;
+    }
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+    .nav-link {
+      list-style: none;
+      padding: 10px;
+    }
+    .nav-link a {
+      text-decoration: none;
+      color: white;
+    }
+    .title {
+      font-size: 1.3em;
+    }
+    .nav-toggle {
+      font-size: 1.3em;
+      display: none;
+    }
+
+    @media only screen and (max-width: 768px) {
+      .nav-menu, .navbar {
+        flex-direction: column;
+      }
+      .logo {
+        align-self: flex-start;
+      }
+      .nav-menu {
+        display: none;
+      }
+      .nav-toggleShow {
+        display: flex;
+      }
+      .nav-toggle {
+        align-self: flex-end;
+        display: initial;
+        position: absolute;
+        cursor: pointer;
+      }
+    }
+  </style>
+  <body>
+    <div class="navbar">
+      <div class="logo">
+        <h1 class="title">Responsive Navbar</h1>
+      </div>
+      <div class="nav-link nav-toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+      <nav>
+        <ul class="nav-menu">
+          <li class="nav-link"><a href="Home">Home</a></li>
+          <li class="nav-link"><a href="Services">Services</a></li>
+          <li class="nav-link"><a href="Contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </body>
+  <script>
+    function classToggle() {
+      const navs = document.querySelectorAll('.nav-menu');
+
+      navs.forEach(nav => nav.classList.toggle('nav-toggleShow'));
+    }
+
+    document.querySelector('.nav-toggle').addEventListener('click', classToggle);
+  </script>
+</html>
