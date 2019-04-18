@@ -1,157 +1,212 @@
-/* originally written in Sass, but converted using https://www.sassmeister.com/ */
-
-@charset "UTF-8";
-html, body {
-  margin: 0;
-  padding: 0;
+/*
+    RESET
+    Reset found @ https://alligator.io/css/minimal-css-reset/
+*/
+html {
   box-sizing: border-box;
-}
-
-.navigation {
-  height: 70px;
-  background: #262626;
-}
-
-.nav-container {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.brand {
-  position: absolute;
-  padding-left: 20px;
-  float: left;
-  line-height: 70px;
-  text-transform: uppercase;
-  font-size: 1.4em;
-}
-.brand a,
-.brand a:visited {
-  color: #ffffff;
-  text-decoration: none;
-}
-
-nav {
-  float: right;
-}
-nav ul {
-  list-style: none;
+  font-size: 16px;
+  -webkit-box-sizing: border-box;
+ -moz-box-sizing: border-box;
+ -webkit-font-smoothing: antialiased;
+ -moz-font-smoothing: antialiased;
+ -o-font-smoothing: antialiased;
+ font-smoothing: antialiased;
+ text-rendering: optimizeLegibility;
+} *, *:before, *:after {
+  box-sizing: inherit;
+} body, h1, h2, h3, h4, h5, h6, p, ol, ul {
   margin: 0;
   padding: 0;
+  font-weight: normal;
+} ol, ul {
+  list-style: none;
+} img {
+  max-width: 100%;
+  height: auto;
 }
-nav ul li {
-  float: left;
-  position: relative;
+/* RESET */
+
+/*
+  pallete:
+  https://coolors.co/292f36-4d88cc-f7faff-6bb0ff-6db1ff
+ */
+:root {
+  --font: 'Open Sans', Arial, Helveltica, Times, sans-serif;
+  --gunmetal: #292f36;
+  --cblue: #4d88cc;
+  --white: #f7faff;
+  --lightBlue: #6bb0ff;
+  --duration: 0.5s;
 }
-nav ul li a {
-  display: block;
-  padding: 0 20px;
-  line-height: 70px;
-  background: #262626;
-  color: #ffffff;
+
+body {
+  background: var(--white);
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  font-family: var(--font);
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+/* Navigation */
+
+.nav {
+  position: fixed;
+  width: 100%;
+  height: auto;
+  z-index: 5;
+  transition: all var(--duration) ease-in-out;
+  font-weight: 400;
+  background-color: var(--gunmetal);
+}
+
+.nav__list span {
+  font-family: var(--font);
+  font-size: 1.5em;
+  font-weight: bold;
+  letter-spacing: 3px;
+  color: var(--white);
+  text-transform: uppercase;
+}
+.nav--active .nav {
+  opacity: 1;
+  background: var(--gunmetal);
+}
+
+.nav__list {
+  display: flex;
+  align-items: flex-start;
+  text-transform: uppercase;
+  justify-content: space-around;
+  flex-direction: row;
+  padding: 50px;
+}
+
+.nav__item {
+  list-style-type: none;
+}
+
+.nav__link {
+  font-size: 1.5em;
   text-decoration: none;
-}
-nav ul li a:hover {
-  background: #2581DC;
-  color: #ffffff;
-}
-nav ul li a:not(:only-child):after {
-  padding-left: 4px;
-  content: " ▾";
-}
-nav ul li ul li {
-  min-width: 190px;
-}
-nav ul li ul li a {
-  padding: 15px;
-  line-height: 20px;
+  color: var(--white);
+  opacity: 1;
+  transition: opacity var(--duration) ease-in-out;
 }
 
-.nav-dropdown {
-  position: absolute;
-  z-index: 1;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+.nav__link:hover {
+  color: var(--white);
+}
+
+/* navigation icon */
+
+.nav__trigger {
   display: none;
+  position: fixed;
+  width: 30px;
+  height: 25px;
+  right: 100px;
+  top: 50px;
+  z-index: 200;
 }
 
-.nav-mobile {
-  display: none;
-  position: absolute;
-  top: 0;
-  right: 0;
-  background: #262626;
-  height: 70px;
-  width: 70px;
-}
-
-@media only screen and (max-width: 799px) {
-  .nav-mobile {
+@media (max-width: 768px) {
+  .nav__trigger {
     display: block;
+    top: 50px;
+    right: 30px;
   }
-
-  nav {
+  .nav {
+    transform: translateX(-100%);
     width: 100%;
-    padding: 70px 0 15px;
+    height: 100%;
+    z-index: 100;
+    opacity: 0;
   }
-  nav ul {
-    display: none;
+  .nav__item {
+    text-align: left;
+    padding: 30px 10px;
   }
-  nav ul li {
-    float: none;
+  .nav__list {
+    margin: 0;
+    padding: 10px;
+    flex-direction: column;
+    align-items: flex-start;
   }
-  nav ul li a {
-    padding: 15px;
-    line-height: 20px;
-  }
-  nav ul li ul li a {
-    padding-left: 30px;
-  }
-
-  .nav-dropdown {
-    position: static;
-  }
-
-  #nav-toggle {
-    position: absolute;
-    left: 18px;
-    top: 22px;
-    cursor: pointer;
-    padding: 10px 35px 16px 0px;
-  }
-  #nav-toggle span,
-#nav-toggle span:before,
-#nav-toggle span:after {
-    cursor: pointer;
-    border-radius: 1px;
-    height: 5px;
-    width: 35px;
-    background: #ffffff;
-    position: absolute;
-    display: block;
-    content: "";
-    transition: all 90ms ease-in-out;
-  }
-  #nav-toggle span:before {
-    top: -10px;
-  }
-  #nav-toggle span:after {
-    bottom: -10px;
-  }
-  #nav-toggle.active span {
-    background-color: transparent;
-  }
-  #nav-toggle.active span:before, #nav-toggle.active span:after {
-    top: 0;
-  }
-  #nav-toggle.active span:before {
-    transform: rotate(45deg);
-  }
-  #nav-toggle.active span:after {
-    transform: rotate(-45deg);
+  .nav__link {
+    opacity: 0;
   }
 }
-@media screen and (min-width: 799px) {
-  .nav-list {
-    display: block !important;
-  }
+
+.nav--active .nav__trigger {
+  opacity: 0.5;
+}
+
+.nav__icon {
+  display: inline-block;
+  position: relative;
+  width: 40px;
+  height: 5px;
+  background-color: var(--cblue);
+  transition-property: background-color, transform;
+  transition-duration: var(--duration);
+}
+
+.nav__icon:before, .nav__icon:after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 5px;
+  position: absolute;
+  background: var(--cblue);
+  transition-property: margin, transform;
+  transition-duration: var(--duration);
+}
+
+.nav__icon:before {
+  margin-top: -10px;
+}
+
+.nav__icon:after {
+  margin-top: 10px;
+}
+
+.nav__link {
+  transition-delay: 500ms;
+}
+
+.nav--active .nav__link {
+  opacity: 1;
+}
+
+.nav--active .nav {
+  transition: all 300ms ease-in-out;
+  transform: translateX(0);
+}
+
+.nav--active .nav__icon {
+  background: rgba(0,0,0,0.0);
+}
+
+.nav--active .nav__icon:before {
+  margin-top: 0;
+  transform: rotate(45deg);
+}
+
+.nav--active .nav__icon:after {
+  margin-top: 0;
+  transform: rotate(-45deg);
+}
+
+.nav.scrolled {
+  background: blue;
+  transition: background 0.5s ease-in-out;
+  -webkit-box-shadow: 0px 5px 7px -1px rgba(0,0,0,0.62);
+  -moz-box-shadow: 0px 5px 7px -1px rgba(0,0,0,0.62);
+  box-shadow: 0px 5px 7px -1px rgba(0,0,0,0.62);
+}
+.nav__list.scrolled {
+  padding: 10px;
 }

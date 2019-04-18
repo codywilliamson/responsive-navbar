@@ -1,41 +1,28 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <script  type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="scripts.js"></script>
-    <title>Responsive Flex Navbar</title>
-  </head>
-  <body>
-  <section class="navigation">
-    <div class="nav-container">
-      <div class="brand">
-        <a href="#!">Logo</a>
-      </div>
-    <nav>
-      <div class="nav-mobile">
-        <a id="nav-toggle" href="#!"><span></span></a>
-      </div>
-      <ul class="nav-list">
-        <li><a href="#!">Home</a></li>
-        <li><a href="#!">About</a></li>
-        <li><a href="#!">Services</a>
-          <ul class="nav-dropdown">
-            <li><a href="#!">Web Design</a></li>
-            <li><a href="#!">Web Development</a></li>
-            <li><a href="#!">Graphic Design</a></li>
-          </ul>
-        </li>
-        <li><a href="#!">Pricing</a></li>
-        <li><a href="#!">Contact</a></li>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous" defer></script>
+    <script src="scripts.js" defer></script>
+    <title>Responsive Navbar</title>
+</head>
+<body>
+  <header class="navigation">
+    <a href="#" class="nav__trigger"><span class="nav__icon"></span></a>
+    <nav class="nav">
+      <ul class="nav__list">
+        <li class="nav__item"><span>Company Name</span></li>
+        <li class="nav__item"><a class="nav__link" href="https://codywilliamson.com">my website</a></li>
+        <li class="nav__item"><a class="nav__link" href="https://github.com/codywilliamson">github</a></li>
+        <li class="nav__item"><a class="nav__link" href="#">Item 3</a></li>
+        <li class="nav__item"><a class="nav__link" href="#">Item 4</a></li>
       </ul>
     </nav>
-    </div>
-</section>
-
-  </body>
+  </header>
+</body>
 </html>
-
