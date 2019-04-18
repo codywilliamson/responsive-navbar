@@ -36,6 +36,7 @@ html {
   --cblue: #4d88cc;
   --white: #f7faff;
   --lightBlue: #6bb0ff;
+  --red: #ff0000;
   --duration: 0.5s;
 }
 
@@ -209,4 +210,21 @@ body.no-scroll {
 }
 .nav__list.scrolled {
   padding: 10px;
+}
+
+.bg {
+  height: 100vh;
+  width: 100vw;
+}
+
+.blue {
+  background: var(--lightBlue);
+}
+
+.black {
+  background: var(--gunmetal);
+}
+
+.red {
+  background: var(--red);
 }
